@@ -1,12 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
 public class PlayerController : MonoBehaviour
 {
-public float speed = 0;
-
  // Rigidbody of the player.
  private Rigidbody rb; 
 
@@ -14,6 +13,8 @@ public float speed = 0;
  private float movementX;
  private float movementY;
 
+ // Speed at which the player moves.
+ public float speed = 0; 
 
  // Start is called before the first frame update.
  void Start()
@@ -33,5 +34,13 @@ public float speed = 0;
         movementY = movementVector.y; 
     }
 
+ // FixedUpdate is called once per fixed frame-rate frame.
+ private void FixedUpdate() 
+    {
+ // Create a 3D movement vector using the X and Y inputs.
+        Vector3 movement = new Vector3 (movementX, 0.0f, movementY);
 
+ // Apply force to the Rigidbody to move the player.
+        rb.AddForce(movement * speed); 
+    }
 }
