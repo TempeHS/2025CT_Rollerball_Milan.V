@@ -4,6 +4,9 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
+//test
+//test
+
 public class PlayerController : MonoBehaviour
 {
  // Rigidbody of the player.
@@ -47,6 +50,8 @@ public class PlayerController : MonoBehaviour
     void OnTriggerEnter(Collider other)
    {
       if(other.gameObject.CompareTag("PickUp"))
-      other.gameObject.SetActive(false);
+      {
+         other.gameObject.SetActive(false);
+      }
    }
 }
